@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Kopi Gerobakan')</title>
 
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
     <style>
@@ -90,7 +88,6 @@
 
     <div class="d-flex">
 
-        <!-- Sidebar (Desktop) -->
         <aside class="kg-sidebar d-none d-lg-flex flex-column p-3 position-sticky top-0" style="height: 100vh;">
             <a href="{{ url('/') }}" class="d-flex align-items-center gap-2 text-decoration-none mb-4 px-2">
                 <i class="bi bi-cup-hot-fill fs-3" style="color: var(--kg-accent);"></i>
@@ -102,32 +99,32 @@
 
             <ul class="nav nav-pills flex-column gap-1 mb-auto">
                 <li class="nav-item">
-                    <a href="{{ url('/') }}" class="nav-link d-flex align-items-center gap-2 rounded-3">
+                    <a href="{{ url('/') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('/') ? 'active' : '' }}">
                         <i class="bi bi-house-door"></i> Beranda
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/menu') }}" class="nav-link d-flex align-items-center gap-2 rounded-3">
+                    <a href="{{ url('/menu') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('menu*') ? 'active' : '' }}">
                         <i class="bi bi-grid"></i> Menu
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/payment') }}" class="nav-link d-flex align-items-center gap-2 rounded-3">
+                    <a href="{{ url('/payment') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('payment*') ? 'active' : '' }}">
                         <i class="bi bi-bag"></i> Payment
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/riwayat') }}" class="nav-link d-flex align-items-center gap-2 rounded-3">
+                    <a href="{{ url('/riwayat') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('riwayat*') ? 'active' : '' }}">
                         <i class="bi bi-clock-history"></i> Riwayat
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/lokasi') }}" class="nav-link d-flex align-items-center gap-2 rounded-3">
+                    <a href="{{ url('/lokasi') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('lokasi*') ? 'active' : '' }}">
                         <i class="bi bi-geo-alt"></i> Lokasi Kami
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/tentang') }}" class="nav-link d-flex align-items-center gap-2 rounded-3">
+                    <a href="{{ url('/tentang') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('tentang*') ? 'active' : '' }}">
                         <i class="bi bi-info-circle"></i> Tentang Kami
                     </a>
                 </li>
@@ -136,7 +133,6 @@
             <small class="text-muted px-2">&copy; {{ date('Y') }} Kopi Gerobakan.<br>Semua hak dilindungi.</small>
         </aside>
 
-        <!-- Sidebar (Mobile / Offcanvas) -->
         <div class="offcanvas offcanvas-start kg-sidebar" tabindex="-1" id="kgSidebarOffcanvas">
             <div class="offcanvas-header">
                 <a href="{{ url('/') }}" class="d-flex align-items-center gap-2 text-decoration-none">
@@ -151,32 +147,32 @@
             <div class="offcanvas-body d-flex flex-column">
                 <ul class="nav nav-pills flex-column gap-1 mb-auto">
                     <li class="nav-item">
-                        <a href="{{ url('/') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 active">
+                        <a href="{{ url('/') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('/') ? 'active' : '' }}">
                             <i class="bi bi-house-door"></i> Beranda
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/menu') }}" class="nav-link d-flex align-items-center gap-2 rounded-3">
+                        <a href="{{ url('/menu') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('menu*') ? 'active' : '' }}">
                             <i class="bi bi-grid"></i> Menu
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/payment') }}" class="nav-link d-flex align-items-center gap-2 rounded-3">
+                        <a href="{{ url('/payment') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('payment*') ? 'active' : '' }}">
                             <i class="bi bi-bag"></i> Payment
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/riwayat') }}" class="nav-link d-flex align-items-center gap-2 rounded-3">
+                        <a href="{{ url('/riwayat') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('riwayat*') ? 'active' : '' }}">
                             <i class="bi bi-clock-history"></i> Riwayat
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/lokasi') }}" class="nav-link d-flex align-items-center gap-2 rounded-3">
+                        <a href="{{ url('/lokasi') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('lokasi*') ? 'active' : '' }}">
                             <i class="bi bi-geo-alt"></i> Lokasi Kami
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/tentang') }}" class="nav-link d-flex align-items-center gap-2 rounded-3">
+                        <a href="{{ url('/tentang') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('tentang*') ? 'active' : '' }}">
                             <i class="bi bi-info-circle"></i> Tentang Kami
                         </a>
                     </li>
@@ -185,15 +181,12 @@
             </div>
         </div>
 
-        <!-- Main Content Wrapper -->
         <div class="flex-grow-1 d-flex flex-column" style="min-width: 0;">
 
-            <!-- Topbar -->
             <header class="kg-topbar sticky-top">
                 <div class="container-fluid py-3">
                     <div class="d-flex align-items-center gap-3 flex-wrap justify-content-between">
 
-                        <!-- Mobile toggler + Search -->
                         <div class="d-flex align-items-center gap-2 flex-grow-1" style="max-width: 500px;">
                             <button class="btn btn-outline-secondary d-lg-none rounded-3" type="button"
                                     data-bs-toggle="offcanvas" data-bs-target="#kgSidebarOffcanvas">
@@ -209,7 +202,6 @@
                             </div>
                         </div>
 
-                        <!-- Cart & Auth -->
                         <div class="d-flex align-items-center gap-3">
                             <a href="{{ url('/cart') }}" class="position-relative text-white fs-5 text-decoration-none">
                                 <i class="bi bi-cart3"></i>
@@ -226,12 +218,10 @@
                 </div>
             </header>
 
-            <!-- Page Content -->
             <main class="flex-grow-1">
                 @yield('content')
             </main>
 
-            <!-- Footer -->
             <footer class="border-top py-4 mt-auto" style="border-color: var(--kg-border) !important;">
                 <div class="container-fluid text-center">
                     <small class="text-muted">&copy; {{ date('Y') }} Kopi Gerobakan. Semua hak dilindungi.</small>
@@ -241,7 +231,6 @@
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     @stack('scripts')
