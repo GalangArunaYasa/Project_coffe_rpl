@@ -23,6 +23,26 @@
             background-color: var(--kg-bg);
             color: #f5f0ec;
         }
+        /* Styling Avatar Inisial Nama */
+        .avatar-initial {
+            width: 38px;
+            height: 38px;
+            background-color: var(--kg-accent);
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .avatar-initial:hover {
+            background-color: var(--kg-accent-hover);
+            cursor: pointer;
+        }
 
         /* Sidebar */
         .kg-sidebar {
@@ -209,9 +229,43 @@
                                     2
                                 </span>
                             </a>
-                            <a href="{{ url('/login') }}" class="btn btn-kg-accent rounded-3 px-4 fw-semibold">
-                                Masuk / Daftar
-                            </a>
+                            @auth
+                                <div class="dropdown">
+                                    <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle text-white" 
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                        
+                                        <div class="avatar-initial">
+                                            {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+                                        </div>
+                                        
+                                        <span class="fw-semibold d-none d-sm-inline ms-1">
+                                            {{ Auth::user()->name }}
+                                        </span>
+                                    </a>
+
+                                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow border-0" 
+                                        style="background-color: var(--kg-surface); border: 1px solid var(--kg-border) !important;">
+                                        
+                                        <li class="px-3 py-2 border-bottom" style="border-color: var(--kg-border) !important;">
+                                            <div class="fw-bold text-white">{{ Auth::user()->name }}</div>
+                                            <small class="text-muted">{{ Auth::user()->email }}</small>
+                                        </li>
+                                        
+                                        <li>
+                                            <form action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="dropdown-item text-danger py-2 d-flex align-items-center gap-2">
+                                                    <i class="bi bi-box-arrow-right"></i> Keluar (Logout)
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-kg-accent rounded-3 px-4 fw-semibold">
+                                    Masuk / Daftar
+                                </a>
+                            @endauth
                         </div>
 
                     </div>
