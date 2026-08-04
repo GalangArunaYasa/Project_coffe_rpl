@@ -64,7 +64,7 @@
                     Kopi Nikmat,<br>
                     <span style="color: var(--kg-accent);">Harga Bersahabat.</span>
                 </h1>
-                <p class="lead  mb-4 text-light">
+                <p class="lead text-muted mb-4">
                     Aruna Coffee — rasa premium, harga tetap ramah di kantong. Pesan sekarang, nikmati dimana saja!
                 </p>
                 <div class="d-flex flex-wrap gap-3 mb-4">
@@ -77,9 +77,9 @@
                 </div>
 
                 <div class="d-flex flex-wrap gap-4 text-muted small">
-                    <span class="text-light"><i class="bi bi-cup-hot me-1" style="color: var(--kg-accent);"></i> Rasa Premium</span>
-                    <span class="text-light"><i class="bi bi-scooter me-1" style="color: var(--kg-accent);"></i> Pesan & Antar</span>
-                    <span class="text-light"><i class="bi bi-wallet2 me-1" style="color: var(--kg-accent);"></i> Pembayaran Mudah</span>
+                    <span><i class="bi bi-cup-hot me-1" style="color: var(--kg-accent);"></i> Rasa Premium</span>
+                    <span><i class="bi bi-scooter me-1" style="color: var(--kg-accent);"></i> Pesan & Antar</span>
+                    <span><i class="bi bi-wallet2 me-1" style="color: var(--kg-accent);"></i> Pembayaran Mudah</span>
                 </div>
             </div>
 
@@ -113,9 +113,9 @@
                         <img src="https://placehold.co/300x300/{{ $imgBg }}/{{ $imgAccent }}?text={{ $item['gambar'] }}"
                             class="card-img-top rounded-top-4" alt="{{ $item['nama'] }}">
                         <div class="card-body">
-                            <h3 class="h6 fw-semibold mb-2 text-light">{{ $item['nama'] }}</h3>
+                            <h3 class="h6 fw-semibold mb-2">{{ $item['nama'] }}</h3>
                             <div class="d-flex align-items-center justify-content-between">
-                                <span class="fw-semibold small text-light">Rp {{ number_format($item['harga'], 0, ',', '.') }}</span>
+                                <span class="fw-semibold small">Rp {{ number_format($item['harga'], 0, ',', '.') }}</span>
                                 <button class="btn btn-kg-accent btn-sm rounded-circle" style="width: 30px; height: 30px;">
                                     <i class="bi bi-plus"></i>
                                 </button>

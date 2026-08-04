@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +23,6 @@
             background-color: var(--kg-bg);
             color: #f5f0ec;
         }
-
         /* Styling Avatar Inisial Nama */
         .avatar-initial {
             width: 38px;
@@ -38,7 +36,7 @@
             justify-content: center;
             border-radius: 50%;
             text-transform: uppercase;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
         .avatar-initial:hover {
@@ -106,7 +104,6 @@
 
     @stack('styles')
 </head>
-
 <body>
 
     <div class="d-flex">
@@ -116,39 +113,38 @@
                 <i class="bi bi-cup-hot-fill fs-3" style="color: var(--kg-accent);"></i>
                 <div>
                     <div class="fw-bold text-white lh-1">KOPI</div>
-                    <div style="color: var(--kg-accent);">GEROBAKAN</div>
+                    <small class="text-muted">GEROBAKAN</small>
                 </div>
             </a>
 
             <ul class="nav nav-pills flex-column gap-1 mb-auto">
                 <li class="nav-item">
-                    <a href="{{ url('/') }}"
-                        class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('/') ? 'active' : '' }}">
+                    <a href="{{ url('/') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('/') ? 'active' : '' }}">
                         <i class="bi bi-house-door"></i> Beranda
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/menu') }}"
-                        class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('menu*') ? 'active' : '' }}">
+                    <a href="{{ url('/menu') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('menu*') ? 'active' : '' }}">
                         <i class="bi bi-grid"></i> Menu
                     </a>
                 </li>
-
+                {{-- <li class="nav-item">
+                    <a href="{{ url('/payment') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('payment*') ? 'active' : '' }}">
+                        <i class="bi bi-bag"></i> Payment
+                    </a>
+                </li> --}}
                 <li class="nav-item">
-                    <a href="{{ url('/riwayat') }}"
-                        class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('riwayat*') ? 'active' : '' }}">
+                    <a href="{{ url('/riwayat') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('riwayat*') ? 'active' : '' }}">
                         <i class="bi bi-clock-history"></i> Riwayat
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/lokasi') }}"
-                        class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('lokasi*') ? 'active' : '' }}">
+                    <a href="{{ url('/lokasi') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('lokasi*') ? 'active' : '' }}">
                         <i class="bi bi-geo-alt"></i> Lokasi Kami
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/tentang') }}"
-                        class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('tentang*') ? 'active' : '' }}">
+                    <a href="{{ url('/tentang') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('tentang*') ? 'active' : '' }}">
                         <i class="bi bi-info-circle"></i> Tentang Kami
                     </a>
                 </li>
@@ -171,38 +167,32 @@
             <div class="offcanvas-body d-flex flex-column">
                 <ul class="nav nav-pills flex-column gap-1 mb-auto">
                     <li class="nav-item">
-                        <a href="{{ url('/') }}"
-                            class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('/') ? 'active' : '' }}">
+                        <a href="{{ url('/') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('/') ? 'active' : '' }}">
                             <i class="bi bi-house-door"></i> Beranda
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/menu') }}"
-                            class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('menu*') ? 'active' : '' }}">
+                        <a href="{{ url('/menu') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('menu*') ? 'active' : '' }}">
                             <i class="bi bi-grid"></i> Menu
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/payment') }}"
-                            class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('payment*') ? 'active' : '' }}">
+                        <a href="{{ url('/payment') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('payment*') ? 'active' : '' }}">
                             <i class="bi bi-bag"></i> Payment
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/riwayat') }}"
-                            class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('riwayat*') ? 'active' : '' }}">
+                        <a href="{{ url('/riwayat') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('riwayat*') ? 'active' : '' }}">
                             <i class="bi bi-clock-history"></i> Riwayat
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/lokasi') }}"
-                            class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('lokasi*') ? 'active' : '' }}">
+                        <a href="{{ url('/lokasi') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('lokasi*') ? 'active' : '' }}">
                             <i class="bi bi-geo-alt"></i> Lokasi Kami
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/tentang') }}"
-                            class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('tentang*') ? 'active' : '' }}">
+                        <a href="{{ url('/tentang') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('tentang*') ? 'active' : '' }}">
                             <i class="bi bi-info-circle"></i> Tentang Kami
                         </a>
                     </li>
@@ -219,7 +209,7 @@
 
                         <div class="d-flex align-items-center gap-2 flex-grow-1" style="max-width: 500px;">
                             <button class="btn btn-outline-secondary d-lg-none rounded-3" type="button"
-                                data-bs-toggle="offcanvas" data-bs-target="#kgSidebarOffcanvas">
+                                    data-bs-toggle="offcanvas" data-bs-target="#kgSidebarOffcanvas">
                                 <i class="bi bi-list fs-5"></i>
                             </button>
 
@@ -228,48 +218,43 @@
                                     <i class="bi bi-search"></i>
                                 </span>
                                 <input type="text" class="form-control kg-search-input border-start-0 rounded-end-3"
-                                    placeholder="Cari menu kopi favoritmu...">
+                                       placeholder="Cari menu kopi favoritmu...">
                             </div>
                         </div>
 
                         <div class="d-flex align-items-center gap-3">
-                            <a href="{{ url('/cart') }}"
-                                class="position-relative text-white fs-5 text-decoration-none">
+                            <a href="{{ url('/cart') }}" class="position-relative text-white fs-5 text-decoration-none">
                                 <i class="bi bi-cart3"></i>
-                                <span
-                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill btn-kg-accent">
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill btn-kg-accent">
                                     2
                                 </span>
                             </a>
                             @auth
                                 <div class="dropdown">
-                                    <a href="#"
-                                        class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle text-white"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-
+                                    <a href="#" class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle text-white" 
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                        
                                         <div class="avatar-initial">
                                             {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
                                         </div>
-
+                                        
                                         <span class="fw-semibold d-none d-sm-inline ms-1">
                                             {{ Auth::user()->name }}
                                         </span>
                                     </a>
 
-                                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow border-0"
+                                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow border-0" 
                                         style="background-color: var(--kg-surface); border: 1px solid var(--kg-border) !important;">
-
-                                        <li class="px-3 py-2 border-bottom"
-                                            style="border-color: var(--kg-border) !important;">
+                                        
+                                        <li class="px-3 py-2 border-bottom" style="border-color: var(--kg-border) !important;">
                                             <div class="fw-bold text-white">{{ Auth::user()->name }}</div>
                                             <small class="text-muted">{{ Auth::user()->email }}</small>
                                         </li>
-
+                                        
                                         <li>
                                             <form action="{{ route('logout') }}" method="POST">
                                                 @csrf
-                                                <button type="submit"
-                                                    class="dropdown-item text-danger py-2 d-flex align-items-center gap-2">
+                                                <button type="submit" class="dropdown-item text-danger py-2 d-flex align-items-center gap-2">
                                                     <i class="bi bi-box-arrow-right"></i> Keluar (Logout)
                                                 </button>
                                             </form>
@@ -304,5 +289,4 @@
 
     @stack('scripts')
 </body>
-
 </html>
