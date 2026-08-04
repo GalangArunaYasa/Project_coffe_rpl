@@ -128,11 +128,11 @@
                         <i class="bi bi-grid"></i> Menu
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ url('/payment') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('payment*') ? 'active' : '' }}">
                         <i class="bi bi-bag"></i> Payment
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{ url('/riwayat') }}" class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('riwayat*') ? 'active' : '' }}">
                         <i class="bi bi-clock-history"></i> Riwayat
