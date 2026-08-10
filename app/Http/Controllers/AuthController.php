@@ -21,34 +21,44 @@ class AuthController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
         ]);
+
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'role' => 'customer', // Default role untuk pendaftar baru
         ]);
 
-        return redirect()->route('login')->with('success', 'Registration successful. Please login.');
+        return redirect()->route('login')->with('success', 'Pendaftaran berhasil. Silakan login.');
     }
 
-    // login 
     public function showLogin()
     {
         return view('auth.login');
     }
+
     public function login(Request $request)
     {
-        $credentials = request()->validate([
+        $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/')->with('success', 'Login successful.');
+
+            // CEK ROLE USER SETELAH LOGIN
+            if (Auth::user()->role === 'admin') {
+                // Jika user adalah Admin -> Redirect ke Halaman Admin Dashboard
+                return redirect()->route('admin.dashboard')->with('success', 'Selamat datang Kembali, Admin!');
+            }
+
+            // Jika user biasa / Customer -> Redirect ke Halaman Utama
+            return redirect()->intended('/')->with('success', 'Login berhasil.');
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'email' => 'Email atau password yang Anda masukkan salah.',
         ]);
     }
 
@@ -57,6 +67,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login')->with('success', 'Logout successful.');
+        return redirect('/login')->with('success', 'Logout berhasil.');
     }
 }

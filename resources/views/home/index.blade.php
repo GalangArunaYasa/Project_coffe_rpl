@@ -4,59 +4,6 @@
 
 @section('content')
 
-    @php
-        // Data menu & pesanan dipindah ke sini supaya markup di bawah tidak berulang.
-        // Idealnya nanti diambil dari database (controller), bukan hardcode.
-        $menuPopuler = [
-            [
-                'nama' => 'Kopi Susu Gula Aren',
-                'deskripsi' => 'Kopi, susu segar, gula aren asli.',
-                'harga' => 12000,
-                'gambar' => 'Kopi+Susu',
-            ],
-            [
-                'nama' => 'Es Kopi Hitam',
-                'deskripsi' => 'Kopi hitam segar biji pilihan.',
-                'harga' => 9000,
-                'gambar' => 'Es+Kopi',
-            ],
-            [
-                'nama' => 'Cappuccino',
-                'deskripsi' => 'Kopi dengan busa susu lembut.',
-                'harga' => 13000,
-                'gambar' => 'Cappuccino',
-            ],
-            [
-                'nama' => 'Kopi Latte',
-                'deskripsi' => 'Kopi latte dengan rasa creamy.',
-                'harga' => 13000,
-                'gambar' => 'Kopi+Latte',
-            ],
-        ];
-
-        $pesanan = [
-            ['nama' => 'Kopi Susu Gula Aren', 'qty' => 1, 'harga' => 12000, 'gambar' => 'KS'],
-            ['nama' => 'Cappuccino', 'qty' => 1, 'harga' => 13000, 'gambar' => 'CP'],
-        ];
-
-        $subtotal = array_sum(array_map(fn($i) => $i['harga'] * $i['qty'], $pesanan));
-        $ongkir = 4000;
-        $total = $subtotal + $ongkir;
-
-        $rekomendasi = [
-            ['nama' => 'Es Kopi Hitam', 'harga' => 9000, 'gambar' => 'Es+Kopi'],
-            ['nama' => 'Cappuccino', 'harga' => 13000, 'gambar' => 'Cappuccino'],
-            ['nama' => 'Kopi Latte', 'harga' => 13000, 'gambar' => 'Kopi+Latte'],
-            ['nama' => 'Chocolate', 'harga' => 12000, 'gambar' => 'Chocolate'],
-            ['nama' => 'Matcha Latte', 'harga' => 14000, 'gambar' => 'Matcha+Latte'],
-        ];
-
-        // Palet placeholder dibuat lebih cerah: krem terang dengan aksen cokelat.
-        $imgBg = 'f5efe6';
-        $imgAccent = 'a8632f';
-    @endphp
-
-    <!-- Hero -->
     <section class="container-fluid py-5">
         <div class="row align-items-center gy-4">
             <div class="col-lg-6">
@@ -64,7 +11,7 @@
                     Kopi Nikmat,<br>
                     <span style="color: var(--kg-accent);">Harga Bersahabat.</span>
                 </h1>
-                <p class="lead  mb-4 text-light">
+                <p class="lead mb-4 text-light">
                     Aruna Coffee — rasa premium, harga tetap ramah di kantong. Pesan sekarang, nikmati dimana saja!
                 </p>
                 <div class="d-flex flex-wrap gap-3 mb-4">
@@ -84,50 +31,52 @@
             </div>
 
             <div class="col-lg-6 d-none d-lg-block text-center">
-                <img src="https://placehold.co/600x400/171310/c0783f?text=Kopi+Gerobakan" alt="Gerobak Kopi"
-                    class="img-fluid rounded-4 shadow">
+                <img src="https://placehold.co/600x400/171310/c0783f?text=Kopi+Gerobakan" alt="Gerobak Kopi" class="img-fluid rounded-4 shadow">
             </div>
         </div>
     </section>
 
-    <!-- Menu & Pesanan -->
     <section class="container-fluid pb-5">
         <div class="d-flex align-items-center justify-content-between mb-4">
             <h2 class="h4 fw-bold mb-0">
-                <i class="bi bi-cup-straw me-1" style="color: var(--kg-accent);"></i> Kamu Mungkin Juga Suka
+                <i class="bi bi-star-fill me-1" style="color: var(--kg-accent);"></i> Menu Best Seller Kami
             </h2>
-            <div class="d-flex gap-2">
-                <button class="btn btn-sm btn-outline-secondary rounded-circle" style="width: 34px; height: 34px;">
-                    <i class="bi bi-chevron-left"></i>
-                </button>
-                <button class="btn btn-sm btn-outline-secondary rounded-circle" style="width: 34px; height: 34px;">
-                    <i class="bi bi-chevron-right"></i>
-                </button>
-            </div>
+            <a href="{{ url('/menu') }}" class="btn btn-sm btn-outline-light rounded-pill px-3">Lihat Semua</a>
         </div>
 
         <div class="row row-cols-2 row-cols-md-5 g-3">
-            @foreach ($rekomendasi as $item)
+            @forelse ($rekomendasi as $item)
                 <div class="col">
-                    <div class="card kg-card rounded-4 h-100">
-                        <img src="https://placehold.co/300x300/{{ $imgBg }}/{{ $imgAccent }}?text={{ $item['gambar'] }}"
-                            class="card-img-top rounded-top-4" alt="{{ $item['nama'] }}">
-                        <div class="card-body">
-                            <h3 class="h6 fw-semibold mb-2 text-light">{{ $item['nama'] }}</h3>
+                    <div class="card kg-card rounded-4 h-100 position-relative">
+                        @if($item->tag || $item->is_bestseller)
+                            <span class="badge kg-card border position-absolute top-0 start-0 m-2 fw-semibold" style="color: var(--kg-accent); z-index: 2;">
+                                {{ $item->is_bestseller ? '★ Best Seller' : $item->tag }}
+                            </span>
+                        @endif
+
+                        @if($item->gambar)
+                            <img src="{{ asset('storage/' . $item->gambar) }}" class="card-img-top rounded-top-4" style="aspect-ratio: 4/3; object-fit: cover;" alt="{{ $item->nama }}">
+                        @else
+                            <img src="https://placehold.co/300x300/f5efe6/a8632f?text={{ urlencode($item->nama) }}" class="card-img-top rounded-top-4" alt="{{ $item->nama }}">
+                        @endif
+
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h3 class="h6 fw-semibold mb-2 text-light">{{ $item->nama }}</h3>
                             <div class="d-flex align-items-center justify-content-between">
-                                <span class="fw-semibold small text-light">Rp {{ number_format($item['harga'], 0, ',', '.') }}</span>
-                                <button class="btn btn-kg-accent btn-sm rounded-circle" style="width: 30px; height: 30px;">
+                                <span class="fw-semibold small text-light">Rp {{ number_format($item->harga, 0, ',', '.') }}</span>
+                                <a href="{{ url('/menu') }}" class="btn btn-kg-accent btn-sm rounded-circle d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;">
                                     <i class="bi bi-plus"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div class="col-12">
+                    <p class="text-muted text-center py-4">Belum ada menu Best Seller yang ditentukan oleh Admin.</p>
+                </div>
+            @endforelse
         </div>
-    </section>
-    <section class="mt-5">
-
     </section>
 
 @endsection
