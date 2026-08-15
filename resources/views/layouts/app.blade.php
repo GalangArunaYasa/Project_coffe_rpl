@@ -241,46 +241,57 @@
                                     2
                                 </span>
                             </a>
-                            @auth
-                                <div class="dropdown">
-                                    <a href="#"
-                                        class="d-flex align-items-center gap-2 text-decoration-none dropdown-toggle text-white"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
 
-                                        <div class="avatar-initial">
-                                            {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
-                                        </div>
+                            <div class="dropdown">
+                                <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle fs-5"></i>
+                                    @auth
+                                        <span>Selamat datang, <strong>{{ Auth::user()->name }}</strong></span>
+                                    @else
+                                        <span>Masuk / Daftar</span>
+                                    @endauth
+                                </a>
 
-                                        <span class="fw-semibold d-none d-sm-inline ms-1">
-                                            {{ Auth::user()->name }}
-                                        </span>
-                                    </a>
-
-                                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow border-0"
-                                        style="background-color: var(--kg-surface); border: 1px solid var(--kg-border) !important;">
-
-                                        <li class="px-3 py-2 border-bottom"
-                                            style="border-color: var(--kg-border) !important;">
-                                            <div class="fw-bold text-white">{{ Auth::user()->name }}</div>
-                                            <small class="text-muted">{{ Auth::user()->email }}</small>
-                                        </li>
-
+                                <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 p-2">
+                                    @auth
+                                        @if (Auth::user()->role === 'admin')
+                                            <li>
+                                                <a href="{{ route('admin.dashboard') }}"
+                                                    class="dropdown-item d-flex align-items-center gap-2 py-2">
+                                                    <i class="bi bi-building-fill-gear"></i> Dashboard Admin
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                        @endif
                                         <li>
                                             <form action="{{ route('logout') }}" method="POST">
                                                 @csrf
-                                                <button type="submit"
-                                                    class="dropdown-item text-danger py-2 d-flex align-items-center gap-2">
-                                                    <i class="bi bi-box-arrow-right"></i> Keluar (Logout)
+                                                <button
+                                                    class="dropdown-item text-danger d-flex align-items-center gap-2 py-2"
+                                                    type="submit">
+                                                    <i class="bi bi-box-arrow-right"></i> Logout
                                                 </button>
                                             </form>
                                         </li>
-                                    </ul>
-                                </div>
-                            @else
-                                <a href="{{ route('login') }}" class="btn btn-kg-accent rounded-3 px-4 fw-semibold">
-                                    Masuk / Daftar
-                                </a>
-                            @endauth
+                                    @else
+                                        <li>
+                                            <a href="{{ route('login') }}"
+                                                class="dropdown-item d-flex align-items-center gap-2 py-2">
+                                                <i class="bi bi-box-arrow-in-right"></i> Masuk
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('register') }}"
+                                                class="dropdown-item d-flex align-items-center gap-2 py-2">
+                                                <i class="bi bi-person-plus"></i> Daftar
+                                            </a>
+                                        </li>
+                                    @endauth
+                                </ul>
+                            </div>
                         </div>
 
                     </div>
