@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -12,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 // --- Frontend Routes (Publik) ---
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+Route::get('/tentangkami', [AboutController::class, 'index'])->name('about');
+Route::get('/tentang-kami', function () {
+    return redirect()->route('about');
+});
+Route::get('/tentang', function () {
+    return redirect()->route('about');
+});
 
 Route::get('/payment', function (Request $request) {
     $product = Product::findOrFail($request->query('product_id'));

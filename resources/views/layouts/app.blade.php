@@ -147,7 +147,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/tentang') }}"
+                    <a href="{{ url('/tentangkami') }}"
                         class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('tentang*') ? 'active' : '' }}">
                         <i class="bi bi-info-circle"></i> Tentang Kami
                     </a>
@@ -201,7 +201,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ url('/tentang') }}"
+                        <a href="{{ url('/tentangkami') }}"
                             class="nav-link d-flex align-items-center gap-2 rounded-3 {{ request()->is('tentang*') ? 'active' : '' }}">
                             <i class="bi bi-info-circle"></i> Tentang Kami
                         </a>
