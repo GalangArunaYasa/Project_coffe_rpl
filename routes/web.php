@@ -10,6 +10,7 @@ use App\Http\Middleware\IsAdmin;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminKaryawanController;
 
 // --- Frontend Routes (Publik) ---
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -47,4 +48,9 @@ Route::middleware(['auth', IsAdmin::class])->prefix('admin')->name('admin.')->gr
 
     Route::post('/products/{product}/toggle-bestseller', [AdminProductController::class, 'toggleBestseller'])->name('products.toggleBestseller');
     Route::resource('products', AdminProductController::class);
-});
+});Route::prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::resource('karyawan', AdminKaryawanController::class);
+    });
+    
