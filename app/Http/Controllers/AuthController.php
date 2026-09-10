@@ -25,11 +25,11 @@ class AuthController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            'password' => Hash::make($request->password),
             'role' => 'customer', // Default role untuk pendaftar baru
         ]);
 
-        return redirect()->route('login')->with('success', 'Pendaftaran berhasil. Silakan login.');
+        return redirect()->route('login')->with('success', 'Pendaftaran berhasil. Silakan login untuk mulai memesan.');
     }
 
     public function showLogin()
@@ -44,22 +44,24 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
+            $user = Auth::user();
 
-            // CEK ROLE USER SETELAH LOGIN
-            if (Auth::user()->role === 'admin') {
-                // Jika user adalah Admin -> Redirect ke Halaman Admin Dashboard
-                return redirect()->route('admin.dashboard')->with('success', 'Selamat datang Kembali, Admin!');
+            if ($user->isAdmin()) {
+                return redirect()->route('admin.dashboard')->with('success', 'Selamat datang kembali, Admin ' . $user->name . '!');
             }
 
-            // Jika user biasa / Customer -> Redirect ke Halaman Utama
-            return redirect()->intended('/')->with('success', 'Login berhasil.');
+            if ($user->isPenjual()) {
+                return redirect()->route('penjual.dashboard')->with('success', 'Selamat bertugas, ' . $user->name . '!');
+            }
+
+            return redirect()->intended('/')->with('success', 'Selamat datang di Aruna Coffee, ' . $user->name . '!');
         }
 
         return back()->withErrors([
             'email' => 'Email atau password yang Anda masukkan salah.',
-        ]);
+        ])->onlyInput('email');
     }
 
     public function logout(Request $request)
@@ -67,6 +69,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login')->with('success', 'Logout berhasil.');
+        return redirect('/login')->with('success', 'Anda telah berhasil keluar (logout).');
     }
 }

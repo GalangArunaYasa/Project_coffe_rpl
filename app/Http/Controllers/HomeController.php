@@ -9,13 +9,15 @@ class HomeController extends Controller
     public function index()
     {
         // Mengambil produk yang ditandai Best Seller oleh Admin
-        $rekomendasi = Product::where('is_bestseller', true)->latest()->get();
+        $rekomendasi = Product::active()->where('is_bestseller', true)->latest()->take(6)->get();
 
-        // Jika belum ada yang ditandai Best Seller, ambil 5 produk terbaru
+        // Jika belum ada yang ditandai Best Seller, ambil produk aktif terbaru
         if ($rekomendasi->isEmpty()) {
-            $rekomendasi = Product::latest()->take(5)->get();
+            $rekomendasi = Product::active()->latest()->take(6)->get();
         }
 
-        return view('home.index', compact('rekomendasi'));
+        $totalMenu = Product::active()->count();
+
+        return view('home.index', compact('rekomendasi', 'totalMenu'));
     }
 }
