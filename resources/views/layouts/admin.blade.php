@@ -248,6 +248,48 @@
             color: var(--kg-gold) !important;
         }
 
+        /* Grouped Nav Dropdown (Menu & Stok) */
+        .adm-nav-link.dropdown-toggle {
+            border: none;
+            cursor: pointer;
+        }
+
+        .adm-nav-link .adm-nav-badge {
+            background-color: #dc3545;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+        }
+
+        .adm-dropdown-menu {
+            background-color: var(--kg-surface) !important;
+            border: 1px solid var(--kg-border) !important;
+            border-radius: 14px;
+            padding: 6px;
+            min-width: 230px;
+        }
+
+        .adm-dropdown-menu .dropdown-item {
+            color: var(--kg-text-muted) !important;
+            border-radius: 10px;
+            padding: 10px 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+        }
+
+        .adm-dropdown-menu .dropdown-item:hover {
+            background-color: var(--kg-surface-hover) !important;
+            color: #ffffff !important;
+        }
+
+        .adm-dropdown-menu .dropdown-item.active {
+            background: var(--kg-accent-gradient) !important;
+            color: #ffffff !important;
+        }
+
         /* Guard against any unbounded SVGs */
         svg.w-5.h-5, svg.w-6.h-6, nav[role="navigation"] svg {
             width: 16px !important;
@@ -281,23 +323,42 @@
                 <div class="vr mx-2 text-secondary d-none d-lg-block" style="height: 28px; opacity: 0.3;"></div>
 
                 <!-- Nav links -->
+                @php $pendingRequestsCount = \App\Models\RestockRequest::where('status', 'pending')->count(); @endphp
                 <nav class="d-none d-lg-flex align-items-center gap-1">
                     <a href="{{ route('admin.dashboard') }}" class="adm-nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                         <i class="bi bi-speedometer2"></i> Dashboard
                     </a>
-                    <a href="{{ route('admin.products.index') }}" class="adm-nav-link {{ request()->routeIs('admin.products.*') ? 'active' : '' }}">
-                        <i class="bi bi-cup-hot"></i> Kelola Menu
-                    </a>
-                    <a href="{{ route('admin.restocks.index') }}" class="adm-nav-link {{ request()->routeIs('admin.restocks.index') ? 'active' : '' }}">
-                        <i class="bi bi-box-seam"></i> Restok Kafe
-                    </a>
-                    <a href="{{ route('admin.restocks.requests') }}" class="adm-nav-link position-relative {{ request()->routeIs('admin.restocks.requests*') ? 'active' : '' }}">
-                        <i class="bi bi-check2-circle"></i> Permintaan Restok
-                        @php $pendingRequestsCount = \App\Models\RestockRequest::where('status', 'pending')->count(); @endphp
-                        @if($pendingRequestsCount > 0)
-                            <span class="badge bg-danger rounded-pill">{{ $pendingRequestsCount }}</span>
-                        @endif
-                    </a>
+
+                    <!-- Grouped dropdown: Menu & Stok -->
+                    <div class="dropdown">
+                        <button type="button" class="adm-nav-link dropdown-toggle bg-transparent {{ (request()->routeIs('admin.products.*') || request()->routeIs('admin.restocks.*')) ? 'active' : '' }}" data-bs-toggle="dropdown">
+                            <i class="bi bi-box-seam"></i> Menu & Stok
+                            @if($pendingRequestsCount > 0)
+                                <span class="badge rounded-pill adm-nav-badge">{{ $pendingRequestsCount }}</span>
+                            @endif
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark shadow border-0 adm-dropdown-menu">
+                            <li>
+                                <a class="dropdown-item {{ request()->routeIs('admin.products.*') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">
+                                    <span><i class="bi bi-cup-hot me-2 text-warning"></i> Kelola Menu</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item {{ request()->routeIs('admin.restocks.index') ? 'active' : '' }}" href="{{ route('admin.restocks.index') }}">
+                                    <span><i class="bi bi-box-seam me-2 text-warning"></i> Restok Kafe</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item {{ request()->routeIs('admin.restocks.requests*') ? 'active' : '' }}" href="{{ route('admin.restocks.requests') }}">
+                                    <span><i class="bi bi-check2-circle me-2 text-warning"></i> Permintaan Restok</span>
+                                    @if($pendingRequestsCount > 0)
+                                        <span class="badge bg-danger rounded-pill">{{ $pendingRequestsCount }}</span>
+                                    @endif
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
                     <a href="{{ route('admin.orders.index') }}" class="adm-nav-link {{ request()->routeIs('admin.orders.*') ? 'active' : '' }}">
                         <i class="bi bi-receipt-cutoff"></i> Monitoring Penjualan
                     </a>

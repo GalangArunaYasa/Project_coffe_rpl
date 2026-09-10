@@ -110,7 +110,6 @@
                     </div>
                 </div>
             </div>
-        </div>
 
             <!-- Quick Order Modal (Muncul saat user menekan tombol plus di menu) -->
             <div class="modal fade" id="menuQuickOrderModal{{ $item->id }}" tabindex="-1" aria-hidden="true">

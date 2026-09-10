@@ -38,7 +38,7 @@
     <div class="text-center mx-auto mb-5 pt-4 border-top" style="border-color: var(--kg-border) !important; max-width: 700px;">
         <span class="badge bg-warning text-dark fw-bold px-3 py-1 rounded-pill mb-2">Tim Pengembang RPL</span>
         <h2 class="h2 fw-bold text-white mb-2">Anggota Kelompok Pengembang Sistem</h2>
-        <p class="text-muted">Kolaborasi tim mahasiswa Rekayasa Perangkat Lunak di balik terciptanya website Aruna Coffee.</p>
+        <p class="text-muted">Kolaborasi tim siswa Rekayasa Perangkat Lunak di balik terciptanya website Aruna Coffee.</p>
     </div>
 
     <!-- 5 Team Member Profile Cards (High Contrast & Clean Styling) -->
@@ -50,11 +50,11 @@
                 <div class="avatar-initial mx-auto mb-3 shadow" style="width: 72px; height: 72px; font-size: 1.75rem;">
                     G
                 </div>
-                <h3 class="h5 fw-bold text-white mb-1">Galang Aruna</h3>
+                <h3 class="h5 fw-bold text-white mb-1">Galang Aruna Yasa</h3>
                 <span class="badge bg-warning text-dark fw-bold px-3 py-1 rounded-pill mb-2">Project Leader</span>
                 <p class="text-white small mb-2 fw-semibold">Fullstack Web Developer</p>
-                <small class="text-warning font-monospace d-block mb-3">NIM: 2026001</small>
-                
+                <small class="text-warning font-monospace d-block mb-3">NIS: 7369</small>
+
                 <div class="pt-2 border-top mt-auto" style="border-color: var(--kg-border) !important;">
                     <span class="text-muted small">Koordinator Arsitektur Sistem & Backend</span>
                 </div>
@@ -67,10 +67,10 @@
                 <div class="avatar-initial mx-auto mb-3 shadow" style="width: 72px; height: 72px; font-size: 1.75rem; background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);">
                     B
                 </div>
-                <h3 class="h5 fw-bold text-white mb-1">Budi Prasetyo</h3>
-                <span class="badge bg-primary text-white fw-bold px-3 py-1 rounded-pill mb-2">Backend Developer</span>
+                <h3 class="h5 fw-bold text-white mb-1">Kelvin Alvino Azza</h3>
+                <span class="badge bg-primary text-white fw-bold px-3 py-1 rounded-pill mb-2">Backend</span>
                 <p class="text-white small mb-2 fw-semibold">Database & API Specialist</p>
-                <small class="text-warning font-monospace d-block mb-3">NIM: 2026002</small>
+                <small class="text-warning font-monospace d-block mb-3">NIS: 7373</small>
                 
                 <div class="pt-2 border-top mt-auto" style="border-color: var(--kg-border) !important;">
                     <span class="text-muted small">Perancang Skema Database & POS Engine</span>
@@ -84,10 +84,10 @@
                 <div class="avatar-initial mx-auto mb-3 shadow" style="width: 72px; height: 72px; font-size: 1.75rem; background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);">
                     C
                 </div>
-                <h3 class="h5 fw-bold text-white mb-1">Citra Lestari</h3>
+                <h3 class="h5 fw-bold text-white mb-1">Yoga Arya Pratama</h3>
                 <span class="badge bg-danger text-white fw-bold px-3 py-1 rounded-pill mb-2">UI/UX Designer</span>
                 <p class="text-white small mb-2 fw-semibold">Frontend Specialist</p>
-                <small class="text-warning font-monospace d-block mb-3">NIM: 2026003</small>
+                <small class="text-warning font-monospace d-block mb-3">NIS: 7391</small>
                 
                 <div class="pt-2 border-top mt-auto" style="border-color: var(--kg-border) !important;">
                     <span class="text-muted small">Desain Antarmuka & Tata Letak Responsif</span>
@@ -101,10 +101,10 @@
                 <div class="avatar-initial mx-auto mb-3 shadow" style="width: 72px; height: 72px; font-size: 1.75rem; background: linear-gradient(135deg, #10b981 0%, #047857 100%);">
                     D
                 </div>
-                <h3 class="h5 fw-bold text-white mb-1">Deni Pratama</h3>
-                <span class="badge bg-success text-white fw-bold px-3 py-1 rounded-pill mb-2">Quality Assurance</span>
-                <p class="text-white small mb-2 fw-semibold">System & Security Tester</p>
-                <small class="text-warning font-monospace d-block mb-3">NIM: 2026004</small>
+                <h3 class="h5 fw-bold text-white mb-1">Asih Agustina</h3>
+                <span class="badge bg-success text-white fw-bold px-3 py-1 rounded-pill mb-2">Quality Content</span>
+                <p class="text-white small mb-2 fw-semibold">Visual Content Developer</p>
+                <small class="text-warning font-monospace d-block mb-3">NIS: 7362</small>
                 
                 <div class="pt-2 border-top mt-auto" style="border-color: var(--kg-border) !important;">
                     <span class="text-muted small">Pengujian Alur Bisnis & Validasi Stok</span>
@@ -118,10 +118,10 @@
                 <div class="avatar-initial mx-auto mb-3 shadow" style="width: 72px; height: 72px; font-size: 1.75rem; background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);">
                     E
                 </div>
-                <h3 class="h5 fw-bold text-white mb-1">Eka Rahmawati</h3>
-                <span class="badge bg-info text-dark fw-bold px-3 py-1 rounded-pill mb-2">Business Analyst</span>
-                <p class="text-white small mb-2 fw-semibold">Documentation & SOP</p>
-                <small class="text-warning font-monospace d-block mb-3">NIM: 2026005</small>
+                <h3 class="h5 fw-bold text-white mb-1">Nabila Herviati</h3>
+                <span class="badge bg-info text-dark fw-bold px-3 py-1 rounded-pill mb-2">Documentation</span>
+                <p class="text-white small mb-2 fw-semibold">Business Analyst</p>
+                <small class="text-warning font-monospace d-block mb-3">NIS: 7379</small>
                 
                 <div class="pt-2 border-top mt-auto" style="border-color: var(--kg-border) !important;">
                     <span class="text-muted small">Analisis Kebutuhan Sistem 3 Role</span>

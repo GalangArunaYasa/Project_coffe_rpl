@@ -638,21 +638,18 @@
             </main>
 
             <!-- Clean Compact Footer -->
-            <footer class="border-top py-4 px-3 px-lg-4 mt-auto" style="background-color: var(--kg-surface); border-color: var(--kg-border) !important;">
-                <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-center text-md-start">
-                    <div>
-                        <span class="fw-bold text-white">ARUNA COFFEE HOUSE</span>
-                        <span class="text-muted small ms-2">© 2026 — Kafe Kopi Rintisan & Karya RPL.</span>
-                    </div>
-                    <div class="d-flex align-items-center gap-2">
-                        <a href="https://www.instagram.com/garunayanza" target="_blank" rel="noopener noreferrer" class="btn btn-kg-outline rounded-pill px-3 py-1 text-white small">
-                            <i class="bi bi-instagram text-danger me-1"></i> @garunayanza
+            <footer class="border-top py-3 px-3 px-lg-4 mt-auto" style="background-color: var(--kg-surface); border-color: var(--kg-border) !important;">
+                <div class="container-fluid d-flex align-items-center justify-content-between gap-3">
+                    <small class="text-muted">© 2026 Aruna Coffee House</small>
+                    <div class="d-flex align-items-center gap-1">
+                        <a href="https://www.instagram.com/garunayanza" target="_blank" rel="noopener noreferrer" class="btn btn-kg-outline border-0 p-2" aria-label="Instagram Aruna Coffee House" title="Instagram">
+                            <i class="bi bi-instagram text-danger"></i>
                         </a>
-                        <a href="https://wa.me/62895326630712" target="_blank" rel="noopener noreferrer" class="btn btn-kg-outline rounded-pill px-3 py-1 text-white small">
-                            <i class="bi bi-whatsapp text-success me-1"></i> 0895-3266-30712
+                        <a href="https://wa.me/62895326630712" target="_blank" rel="noopener noreferrer" class="btn btn-kg-outline border-0 p-2" aria-label="WhatsApp Aruna Coffee House" title="WhatsApp">
+                            <i class="bi bi-whatsapp text-success"></i>
                         </a>
-                        <a href="https://maps.app.goo.gl/arKRVNFRJaMSyZPU8" target="_blank" rel="noopener noreferrer" class="btn btn-kg-outline rounded-pill px-3 py-1 text-white small">
-                            <i class="bi bi-geo-alt-fill text-warning me-1"></i> Lokasi Maps
+                        <a href="https://maps.app.goo.gl/arKRVNFRJaMSyZPU8" target="_blank" rel="noopener noreferrer" class="btn btn-kg-outline border-0 p-2" aria-label="Lokasi Aruna Coffee House" title="Lokasi">
+                            <i class="bi bi-geo-alt-fill text-warning"></i>
                         </a>
                     </div>
                 </div>
