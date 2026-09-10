@@ -336,6 +336,10 @@
                         </li>
                     </ul>
                 </div>
+
+                <small class="text-muted">
+                    Monitoring operasional Kopi Gerobakan
+                </small>
             </div>
 
         </div>
